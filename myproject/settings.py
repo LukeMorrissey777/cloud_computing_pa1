@@ -82,7 +82,6 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,7 +94,7 @@ TEMPLATES = [
                 'django.template.context_processors.i18n',
             ],
         },
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, "templates/")],
     },
 ]
 
@@ -179,3 +178,5 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
